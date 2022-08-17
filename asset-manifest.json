@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/ir-pooshesh-test/static/css/main.69dcbd3e.css",
-    "main.js": "/ir-pooshesh-test/static/js/main.275d325d.js",
+    "main.js": "/ir-pooshesh-test/static/js/main.9b99f3db.js",
     "static/media/background.svg": "/ir-pooshesh-test/static/media/background.90d7fa303477fabab0ce.svg",
     "index.html": "/ir-pooshesh-test/index.html",
     "main.69dcbd3e.css.map": "/ir-pooshesh-test/static/css/main.69dcbd3e.css.map",
-    "main.275d325d.js.map": "/ir-pooshesh-test/static/js/main.275d325d.js.map"
+    "main.9b99f3db.js.map": "/ir-pooshesh-test/static/js/main.9b99f3db.js.map"
   },
   "entrypoints": [
     "static/css/main.69dcbd3e.css",
-    "static/js/main.275d325d.js"
+    "static/js/main.9b99f3db.js"
   ]
 }
