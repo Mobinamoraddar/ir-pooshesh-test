@@ -8,32 +8,36 @@ const Homepage = () => {
       <StyledHeader>
         <StyledLogin>
           <li>
-            <img src="../images/user-square.svg" alt="" />
+            <img src={process.env.PUBLIC_URL + "/images/user-square.svg"} />
             <NavLink to={"/Login"}> اکرم مکرم</NavLink>
           </li>
           <li>
-            <img src="../images/logout.svg" alt="" />
+            <img src={process.env.PUBLIC_URL + "/images/logout.svg"} />
             <a href="#"> خروج</a>
           </li>
         </StyledLogin>
         <StyledNav>
-          <img src="../images/Group 1724.svg" alt="logo" width={"95px"} />
+          <img
+            src={process.env.PUBLIC_URL + "/images/Group 1724.svg"}
+            alt="logo"
+            width={"95px"}
+          />
           <li>
-            <img src="../images/Group 144.svg" alt="" />
+            <img src={process.env.PUBLIC_URL + "/images/Group 144.svg"} />
             <a style={{ color: "#FA8735" }} href="#">
               صفحه اصلی
             </a>
           </li>
           <li>
-            <img src="../images/folder-add.svg" alt="" />
+            <img src={process.env.PUBLIC_URL + "/images/folder-add.svg"} />
             <a href="#">ایجاد پرونده</a>
           </li>
           <li>
-            <img src="../images/book.svg" alt="" />
+            <img src={process.env.PUBLIC_URL + "/images/book.svg"} />
             <a href="#">لیست پرونده ها </a>
           </li>
           <li>
-            <img src="../images/receipt-minus.svg" alt="" />
+            <img src={process.env.PUBLIC_URL + "/images/receipt-minus.svg"} />
             <a href="#"> گزارشگیری</a>
           </li>
         </StyledNav>
@@ -41,41 +45,65 @@ const Homepage = () => {
       <FirstSection>
         <Styledcol>
           <div>
-            <img src="../images/Group 11831.svg" alt="icon" />
+            <img
+              src={process.env.PUBLIC_URL + "/images/Group 11831.svg"}
+              alt="icon"
+            />
             <span>تشکیل شده</span>
           </div>
           <div>
-            <img src="../images/Group 11838.svg" alt="icon" />
+            <img
+              src={process.env.PUBLIC_URL + "/images/Group 11838.svg"}
+              alt="icon"
+            />
             <span>ارزیابی شده</span>
           </div>
         </Styledcol>
         <Styledcol>
           <div>
-            <img src="../images/Group 11832.svg" alt="icon" />
+            <img
+              src={process.env.PUBLIC_URL + "/images/Group 11832.svg"}
+              alt="icon"
+            />
             <span> ارسال شده به شرکت ارزیابی</span>
           </div>
           <div>
-            <img src="../images/Group 11837.svg" alt="icon" />
+            <img
+              src={process.env.PUBLIC_URL + "/images/Group 11837.svg"}
+              alt="icon"
+            />
             <span>برگشت به شرکت ارزیابی </span>
           </div>
         </Styledcol>
         <Styledcol>
           <div>
-            <img src="../images/Group 11833.svg" alt="icon" />
+            <img
+              src={process.env.PUBLIC_URL + "/images/Group 11833.svg"}
+              alt="icon"
+            />
             <span>آرشیو شده</span>
           </div>
           <div>
-            <img src="../images/Group 11836.svg" alt="icon" />
+            <img
+              src={process.env.PUBLIC_URL + "/images/Group 11836.svg"}
+              alt="icon"
+            />
             <span>بازدید مجدد</span>
           </div>
         </Styledcol>
         <Styledcol>
           <div>
-            <img src="../images/Group 11632.svg" alt="icon" />
+            <img
+              src={process.env.PUBLIC_URL + "/images/Group 11632.svg"}
+              alt="icon"
+            />
             <span>در حال اجرا</span>
           </div>
           <div>
-            <img src="../images/Group 11811.svg" alt="icon" />
+            <img
+              src={process.env.PUBLIC_URL + "/images/Group 11811.svg"}
+              alt="icon"
+            />
             <span>بسته شده</span>
           </div>
         </Styledcol>
@@ -87,7 +115,7 @@ const Homepage = () => {
             <div>
               <span>مشاهده بصورت:</span>
               <span>ماهیانه</span>
-              <img src="../images/Vector.svg" alt="" />
+              <img src={process.env.PUBLIC_URL + "/images/Vector.svg"} alt="" />
             </div>
           </TitleHead>
           <DateSpan>
@@ -98,42 +126,63 @@ const Homepage = () => {
           </DateSpan>
           <StyledSteps>
             <div>
-              <img src="../images/document-text.svg" alt="" />
+              <img
+                src={process.env.PUBLIC_URL + "/images/document-text.svg"}
+                alt=""
+              />
               <span>336</span>
               <p>پرونده تشکیل شده</p>
             </div>
             <div>
-              <img src="../images/document-forward.svg" alt="" />
+              <img
+                src={process.env.PUBLIC_URL + "/images/document-forward.svg"}
+                alt=""
+              />
               <span>445</span>
               <p>پرونده ارسال شده به شرکت ارزیابی </p>
             </div>
             <div>
-              <img src="../images/archive.svg" alt="" />
+              <img
+                src={process.env.PUBLIC_URL + "/images/archive.svg"}
+                alt=""
+              />
               <span>665</span>
               <p>پرونده آرشیو شده</p>
             </div>
             <div>
-              <img src="../images/Group 1689.svg" alt="" />
+              <img
+                src={process.env.PUBLIC_URL + "/images/Group 1689.svg"}
+                alt=""
+              />
               <span>255</span>
               <p>پرونده در حال اجرا</p>
             </div>
             <div>
-              <img src="../images/Group 1690.svg" alt="" />
+              <img
+                src={process.env.PUBLIC_URL + "/images/Group 1690.svg"}
+                alt=""
+              />
               <span>255</span>
               <p>پرونده ارزیابی شده</p>
             </div>
             <div>
-              <img src="../images/Group 1675.svg" alt="" />
+              <img
+                src={process.env.PUBLIC_URL + "/images/Group 1675.svg"}
+                alt=""
+              />
               <span>255</span>
               <p>پرونده برگشت به شرکت ارزیابی</p>
             </div>
             <div>
-              <img src="../images/frame.svg" alt="" />
+              <img src={process.env.PUBLIC_URL + "/images/frame.svg"} alt="" />
               <span>225</span>
               <p>پرونده بازدید مجدد</p>
             </div>
             <div>
-              <img src="../images/Group 1691.svg" alt="" />
+              <img
+                src={process.env.PUBLIC_URL + "/images/Group 1691.svg"}
+                alt=""
+              />
               <span>225</span>
               <p>پرونده بسته شده</p>
             </div>
@@ -143,10 +192,9 @@ const Homepage = () => {
           <TitleHead>
             <h2>نمودار تعداد کل پرونده ها</h2>
             <div>
-              {" "}
               <span>مشاهده بصورت:</span>
               <span>ماهیانه</span>
-              <img src="../images/Vector.svg" alt="" />
+              <img src={process.env.PUBLIC_URL + "/images/Vector.svg"} alt="" />
             </div>
           </TitleHead>
           <DateSpanSecond>
@@ -155,11 +203,11 @@ const Homepage = () => {
             <span>از:</span>
             <span>1400/12/18</span>
           </DateSpanSecond>
-          <img src="../images/chart.jpg" alt="" />
+          <img src={process.env.PUBLIC_URL + "/images/chart.jpg"} alt="" />
         </ThirdSection>
       </Container>
       <Bar>
-        <img src="../image/Rectangle 763.svg" alt="" />
+        <img src={process.env.PUBLIC_URL + "/image/Rectangle 763.svg"} alt="" />
       </Bar>
     </>
   );
