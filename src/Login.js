@@ -1,12 +1,9 @@
-// import axios from "axios";
 import { useRef, useState, useEffect, useContext } from "react";
 import AuthContext from "./context/AuthProvider";
-import { Navigate } from "react-router-dom";
 import styled from "styled-components";
-
 import axios from "./api/axios";
 import Visit from "./components/Visit";
-import Homepage from "./components/Homepage";
+
 const LOGIN_URL = "/token/";
 
 const Login = () => {
@@ -36,26 +33,21 @@ const Login = () => {
 
         { username: user, password: pwd }
       );
-      console.log({ response });
-      console.log(JSON.stringify(response?.data));
+      // console.log({ response });
+      // console.log(JSON.stringify(response?.data));
       const accessToken = response?.data?.access;
       setAuth({ user, pwd, accessToken });
       localStorage.setItem("accessToken", accessToken);
       setUser("");
       setPwd("");
       setSuccess(true);
-
-      // <Redirect to="/visit" />;
-      //redirect to the visit page /visit
     } catch (err) {
       if (!err?.response) {
         setErrMsg("No Server Response");
       } else if (err.response?.status === 400) {
         setErrMsg("Missing Username or Password");
       } else if (err.response?.status === 401) {
-        setErrMsg("Unauthorized");
-        // <Navigate to={"/home/"} />;
-        // redirect to the home page /home
+        setErrMsg("رمز عبور یا نام کاربری اشتباه است.");
       } else {
         setErrMsg("Login Failed");
       }
@@ -115,6 +107,14 @@ const StyledSection = styled.section`
   input {
     width: 50%;
     margin: 20px;
+  }
+  p {
+    direction: rtl;
+    text-align: center;
+    margin-bottom: 20px;
+    width: 300px;
+    color: #ba3939;
+    background: #ffe0e0;
   }
   button {
     background: linear-gradient(to bottom right, #ef4765, #ff9a5a);

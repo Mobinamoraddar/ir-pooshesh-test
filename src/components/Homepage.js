@@ -213,6 +213,7 @@ const ThirdSection = styled.section`
 const StyledSteps = styled.div`
   /* padding-bottom: 23px; */
   div {
+    cursor: pointer;
     display: flex;
     align-items: center;
     text-align: right;
@@ -309,6 +310,7 @@ const FirstSection = styled.section`
 
 const Styledcol = styled.section`
   div {
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     align-items: center;

@@ -5,6 +5,12 @@ import styled from "styled-components";
 const Visit = () => {
   const [branch, setBranch] = useState("");
   const [adjuster, setAdjuster] = useState("");
+  const [adjusterValue, setAdjusterValue] = useState("");
+  const [BranchValue, setBranchValue] = useState("");
+  const [damage, setDamage] = useState("");
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [distance, setDistance] = useState("");
   const accessToken = localStorage.getItem("accessToken");
   useEffect(() => {
     axios
@@ -22,47 +28,130 @@ const Visit = () => {
         }
       );
   }, []);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      await axios.post(
+        "https://estate-api.iranianpooshesh.com/portal/adjuster/59/visit/",
+        //  data
+        {
+          is_active: true,
+          visit_date: date,
+          visit_time: time,
+          covered_distance: distance,
+          amount_damages_assessed: damage,
+          description: "string",
+          adjuster: adjusterValue,
+          file: 59,
+          branch: BranchValue,
+        },
+        { headers: { Authorization: `jwt ${accessToken}` } }
+      );
+    } catch (err) {
+      alert(err.response.data.detail);
+    }
+  };
+
+  const onBranchChange = (e) => {
+    setBranchValue(e.target.value);
+  };
+  const onAdjusterChange = (e) => {
+    setAdjusterValue(e.target.value);
+  };
+  const onDamageChange = (e) => {
+    setDamage(e.target.value);
+  };
+  const onDateChange = (e) => {
+    setDate(e.target.value);
+  };
+  const onTimeChange = (e) => {
+    setTime(e.target.value);
+  };
+  const onDistanceChange = (e) => {
+    setDistance(e.target.value);
+  };
+  console.log(BranchValue, adjusterValue, damage, date, time, distance);
   return (
-    <StyledSection>
+    <StyledSection onSubmit={handleSubmit}>
       <h1>فرم بازدید</h1>
-      <StyledForm>
+      <StyledWrapper>
         <Row>
           <div>
             <label htmlFor="branch">شعبه ایرانیان پوشش*</label>
-            <select name="branch" id="">
+            <select
+              name="branch"
+              id=""
+              required
+              value={BranchValue}
+              onChange={onBranchChange}
+            >
               <option value="">انتخاب کنید</option>
-              <option value="">{branch?.name}</option>
+              <option value={branch?.name}>{branch?.name}</option>
             </select>
           </div>
           <div>
             <label htmlFor="adjuster">کارشناس*</label>
-            <select name="adjuster" id="">
+            <select
+              name="adjuster"
+              value={adjusterValue}
+              onChange={onAdjusterChange}
+              required
+            >
               <option value="">انتخاب کنید</option>
-              <option value="">{adjuster?.full_name}</option>
+              <option value={adjuster?.full_name}>{adjuster?.full_name}</option>
             </select>
           </div>
           <div>
             <label htmlFor="damage">مبلغ خسارت ارزیابی شده*</label>
-            <input type="number" id="damage" name="damage" min="100000000" />
+            <input
+              value={damage}
+              onChange={onDamageChange}
+              placeholder="ریال"
+              type="number"
+              id="damage"
+              name="damage"
+              min="100000000"
+              required
+            />
           </div>
         </Row>
         <Row>
           <div>
             <label htmlFor="date">تاریخ*</label>
-            <input type="date" id="date" name="date" />
+            <input
+              value={date}
+              onChange={onDateChange}
+              type="date"
+              id="date"
+              name="date"
+              required
+            />
           </div>
           <div>
             <label htmlFor="time">ساعت*</label>
-            <input type="time" id="time" name="time" />
+            <input
+              value={time}
+              onChange={onTimeChange}
+              type="time"
+              id="time"
+              name="time"
+              required
+            />
           </div>
           <div>
             <label htmlFor="distance">مسافت رفت و برگشت طی شده*</label>
             <input
+              value={distance}
+              onChange={onDistanceChange}
+              placeholder="km"
               type="number"
               id="distance"
               name="distance"
               min="1"
               max="30"
+              required
             />
           </div>
         </Row>
@@ -72,8 +161,8 @@ const Visit = () => {
             <textarea id="detail" name="detail" rows="4" cols="50" />
           </div>
         </Row>
-      </StyledForm>
-      <StyledButton>ذخیره</StyledButton>
+      </StyledWrapper>
+      <button type="submit">ذخیره</button>
     </StyledSection>
   );
 };
@@ -88,6 +177,9 @@ const Row = styled.div`
     border: 1px solid #e5e5e5;
     border-radius: 8px;
     margin-left: 57px;
+  }
+  input {
+    text-align: left;
   }
   label {
     margin-bottom: 8px;
@@ -104,19 +196,8 @@ const Row = styled.div`
     flex-direction: column;
   }
 `;
-const StyledButton = styled.button`
-  margin: 24px 0 60px 0;
-  width: 198px;
-  height: 48px;
-  background: #fa8735;
-  border-radius: 8px;
-  border: none;
-  color: #ffffff;
-  font-weight: 500;
-  font-size: 17px;
-  line-height: 28px;
-`;
-const StyledSection = styled.div`
+
+const StyledSection = styled.form`
   margin: 0 auto;
   width: 1006px;
   h1 {
@@ -129,8 +210,20 @@ const StyledSection = styled.div`
     text-align: right;
     color: #415076;
   }
+  button {
+    margin: 24px 0 60px 0;
+    width: 198px;
+    height: 48px;
+    background: #fa8735;
+    border-radius: 8px;
+    border: none;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 28px;
+  }
 `;
-const StyledForm = styled.div`
+const StyledWrapper = styled.div`
   direction: rtl;
   padding: 72px 18px 67px 35px;
   display: flex;
